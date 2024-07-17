@@ -96,13 +96,16 @@ def create_review():
     db.session.commit()
     return jsonify({'message': 'Review created successfully'}), 201
 
-# New route for book previews
+#route for book previews in the homepage
 @main.route("/homepage")
 @login_required
 def homepage():
+    query = request.args.get('query', default='', type=str)
     num_books = request.args.get('num_books', default=20, type=int)
+    if not query:
+        query = "bestsellers"  # Using a generic term to get a variety of books
     try:
-        response = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=programming&maxResults={num_books}')
+        response = requests.get(f'https://www.googleapis.com/books/v1/volumes?q={query}&maxResults={num_books}')
         books = response.json().get('items', [])
     except Exception as e:
         print(f"Error fetching books: {e}")
