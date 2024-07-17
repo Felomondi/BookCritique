@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Welcome to the Book Review Site</h1>
+    <h2>Sign up to write reviews for your favorite books!</h2>
+    
+    <a href="{{ url_for('main.register') }}">Register</a> </br>
+
+    <h4>Already have an account? Login by pressing the button below!</h4>
+    <a href="{{ url_for('main.login') }}">Login</a> 
+    <!-- <a href="{{ url_for('main.review') }}">Write a Review</a> -->
+{% endblock %}
