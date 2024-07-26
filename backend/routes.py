@@ -9,15 +9,6 @@ from flask_cors import CORS
 
 main = Blueprint('main', __name__)
 
-# CORS(main)
-
-# @main.after_request
-# def after_request(response):
-#     response.headers.add("Access-Control-Allow-Origin", "*")
-#     response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-#     response.headers.add("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS")
-#     return response
-
 @main.route('/register', methods=['POST', 'OPTIONS'])
 def register():
     if request.method == 'OPTIONS':
