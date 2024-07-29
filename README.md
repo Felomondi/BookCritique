@@ -13,8 +13,7 @@ Welcome to our Book Review and Rating Website! This web application allows users
 
 - Flask (Python)
 - SQLite
-- HTML/CSS (Bootstrap) - Not decided 
-- JavaScript - If we decide to use Raect fro frontend 
+- React - frontend
 - Google Books API
 
 ## Prerequisites
@@ -27,7 +26,7 @@ Before you begin, ensure you have the following installed on your machine:
 ## Installation
 
 ### Step 1: Clone the Repository
-### Step 2: Set Up Python Virtual Environment
+### Step 2: Set Up Python Virtual Environment and run the backend
 - On macOS and Linux:
 ```sh
 python3 -m venv venv
@@ -53,6 +52,20 @@ SECRET_KEY=your_secret_key
 ```sh
 flask run
 ```
+
+## Run the frontend
+```sh
+cd frontend
+```
+
+```sh
+npm install
+```
+
+```sh
+npm start
+```
+
 #### To contribute, please clone the repo, create a new branch for your changes and submit a pull request! 
 
 # Enjoy!!
