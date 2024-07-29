@@ -81,7 +81,7 @@ def books():
     if request.method == 'OPTIONS':
         return _build_cors_preflight_response()
     query = request.args.get('query', default='bestsellers', type=str)
-    num_books = request.args.get('num_books', default=20, type=int)
+    num_books = request.args.get('num_books', default=12, type=int)
     try:
         response = requests.get(f'https://www.googleapis.com/books/v1/volumes?q={query}&maxResults={num_books}')
         books = response.json().get('items', [])

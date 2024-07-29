@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './Register.css';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -27,15 +28,16 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="register-container">
       <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="register-form">
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          className="input-field"
         />
         <input
           type="email"
@@ -43,6 +45,7 @@ function Register() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="input-field"
         />
         <input
           type="password"
@@ -50,6 +53,7 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="input-field"
         />
         <input
           type="password"
@@ -57,8 +61,9 @@ function Register() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          className="input-field"
         />
-        <button type="submit">Register</button>
+        <button type="submit" className="submit-button">Register</button>
       </form>
     </div>
   );
