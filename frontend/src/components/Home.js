@@ -1,17 +1,18 @@
 // src/components/Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 function Home() {
   return (
-    <div>
+    <div className="home-container">
       <h1>Welcome to Book Review</h1>
-      <p>
-        <Link to="/login">Login</Link> if you already have an account.
-      </p>
-      <p>
-        <Link to="/register">Register</Link> if you don't have an account.
-      </p>
+      <h2>A Community For All Book Lovers</h2>
+      <p className="description">Your one-stop platform for all book reviews and ratings. Join our community now!</p>
+      <div className="links-container">
+        <Link to="/login" className="home-link">Login</Link>
+        <Link to="/register" className="home-link">Register</Link>
+      </div>
     </div>
   );
 }
