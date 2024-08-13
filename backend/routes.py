@@ -90,6 +90,22 @@ def books():
         print(f"Error fetching books: {e}")
         return jsonify({'error': str(e)}), 500
 
+@main.route('/books/<string:id>', methods=['GET', 'OPTIONS'])
+def get_book_by_id(id):
+    if request.method == 'OPTIONS':
+        return _build_cors_preflight_response()
+    try:
+        response = requests.get(f'https://www.googleapis.com/books/v1/volumes/{id}')
+        if response.status_code == 200:
+            book = response.json()
+            return jsonify(book), 200
+        else:
+            return jsonify({'error': 'Book not found'}), 404
+    except Exception as e:
+        print(f"Error fetching book details: {e}")
+        return jsonify({'error': str(e)}), 500
+    
+
 @main.route('/users', methods=['GET', 'OPTIONS'])
 def get_users():
     if request.method == 'OPTIONS':

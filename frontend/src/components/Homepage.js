@@ -1,5 +1,6 @@
 // src/components/Homepage.js
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Homepage.css';  // Import the CSS file
 
@@ -42,7 +43,7 @@ function Homepage() {
     }
   };
 
-  return ( 
+  return (
     <div className="homepage-container">
       <h1>Book Previews</h1>
 
@@ -62,11 +63,11 @@ function Homepage() {
           <h2>Search Results</h2>
           <div className="books-grid">
             {searchResults.map((book) => (
-              <div key={book.id} className="book-card">
+              <Link to={`/book/${book.id}`} key={book.id} className="book-card">
                 <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
                 <h3>{book.volumeInfo.title}</h3>
                 <p>{book.volumeInfo.authors?.join(', ')}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -75,33 +76,33 @@ function Homepage() {
       <h2>New Releases</h2>
       <div className="books-grid">
         {newReleases.map((book) => (
-          <div key={book.id} className="book-card">
+          <Link to={`/book/${book.id}`} key={book.id} className="book-card">
             <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
             <h3>{book.volumeInfo.title}</h3>
             <p>{book.volumeInfo.authors?.join(', ')}</p>
-          </div>
+          </Link>
         ))}
       </div>
 
       <h2>Top Rated</h2>
       <div className="books-grid">
         {topRated.map((book) => (
-          <div key={book.id} className="book-card">
+          <Link to={`/book/${book.id}`} key={book.id} className="book-card">
             <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
             <h3>{book.volumeInfo.title}</h3>
             <p>{book.volumeInfo.authors?.join(', ')}</p>
-          </div>
+          </Link>
         ))}
       </div>
 
       <h2>Editor's Picks</h2>
       <div className="books-grid">
         {editorsPicks.map((book) => (
-          <div key={book.id} className="book-card">
+          <Link to={`/book/${book.id}`} key={book.id} className="book-card">
             <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
             <h3>{book.volumeInfo.title}</h3>
             <p>{book.volumeInfo.authors?.join(', ')}</p>
-          </div>
+          </Link>
         ))}
       </div>
 
