@@ -45,7 +45,7 @@ function Homepage() {
 
   return (
     <div className="homepage-container">
-      <h1>Book Previews</h1>
+      <h1>BookCritique</h1>
 
       <form className="search-form" onSubmit={handleSearch}>
         <input 
